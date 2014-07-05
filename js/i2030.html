@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Imperial 2030</title>
+	<link rel='stylesheet' type='text/css' href='i2030.css' />
+	<script type='text/javascript' src='i2030.js'></script>
+</head>
+
+<body onload='init()'>
+	<table>
+		<tr>
+			<td><textarea cols='99' rows='24' readonly='readonly' id='output'></textarea></td>
+			<td>
+				<table>
+					<tr><td><button onclick='countrypayout()'>pay out</button></td>	<td><input type='text' id='cpayamt'/></td></tr>
+					<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
+					<tr><td><button onclick='dotaxation()'>taxation</button></td>	<td><input type='text'/></td></tr>
+					<tr><td><button onclick='doturn()'>turn</button></td></tr>
+					<tr><td><hr></td></tr>
+					<tr><td><button onclick='playerpayout()'>pay out</button></td>	<td><input type='text' id='ppayamt'/></td></tr>
+					<tr><td><button onclick='dobuy()'>buy</button></td>				<td><input type='text' id='buybond'/></td></tr>
+					<tr><td><button onclick='doupgrade()'>upgrade</button></td>		<td><input type='text'/></td></tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
+
