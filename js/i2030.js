@@ -194,7 +194,7 @@ function prtable() {
 }
 
 function countrypayout() {
-	var amt = document.getElementById( 'cpayamt' ).value;
+	var amt = +document.getElementById( 'cpayamt' ).value;
 	game.countries[game.turn][0].payout( amt );
 	prtable()
 }
@@ -213,12 +213,12 @@ function doturn() {
 }
 
 function playerpayout() {
-	var amt = document.getElementById( 'ppayamt' ).value;
+	var amt = +document.getElementById( 'ppayamt' ).value;
 	game.countries[game.turn][1].payout( amt );
 	prtable()
 }
 function dobuy() {
-	var bond = document.getElementById( 'buybond' ).value;
+	var bond = +document.getElementById( 'buybond' ).value;
 	cturn = game.countries[game.turn];
 	cturn[1].buy( cturn[0], bond );
 	prtable()
