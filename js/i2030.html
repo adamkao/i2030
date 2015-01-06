@@ -20,17 +20,17 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><select>
+					<td><select id='import'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3' selected>3</option>
 					</select>
 				</td>
-				<tr><td><button onclick='doproduce()'>produce</button></td></tr>
-				<tr><td><button onclick='domaneuver()'>maneuver</button></td></tr>
+				<tr><td><button onclick='endact()'>produce</button></td></tr>
+				<tr><td><button onclick='endact()'>maneuver</button></td></tr>
 				<tr><td><button onclick='dotaxation()'>taxation</button>
 					<td>at</td>
-					<td><select>
+					<td><select id='taxat'>
 						<option value='1'>: 1</option>
 						<option value='2'>: 2</option>
 						<option value='3'>: 3</option>
@@ -51,7 +51,7 @@
 						<option value='18'>:18</option>
 					</select></td>
 					<td>units</td>
-					<td><select>
+					<td><select id='taxunits'>
 						<option value='1'>: 1</option>
 						<option value='2'>: 2</option>
 						<option value='3'>: 3</option>
@@ -77,7 +77,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><select>
+					<td><select id='buy'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3'>3</option>
@@ -92,13 +92,13 @@
 				<tr>
 					<td><button onclick='doupgrade()'>upgrade</button></td>
 					<td>from</td>
-					<td><select>
+					<td><select id='upfrom'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3' selected>3</option>
 					</select></td>
 					<td>to</td>
-					<td><select>
+					<td><select id='upto'>
 						<option value='1'>1</option>
 						<option value='2'>2</option>
 						<option value='3'>3</option>
@@ -110,7 +110,7 @@
 						<option value='9'>9</option>
 					</select></td>
 				</tr>
-				<tr><td><button onclick='dopass()'>pass</button></td></tr>
+				<tr><td><button onclick='doturn()'>pass</button></td></tr>
 			</table>
 		</td>
 	</tr>

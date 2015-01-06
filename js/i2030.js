@@ -6,6 +6,7 @@ function clear() {}
 function init() {clear(); prtable()}
 
 game.round = 1;
+game.phase = 'action';
 game.costs = [ 0, 2, 4, 6, 9, 12, 16, 20, 25, 30 ];
 game.bonus = [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5 ];
 game.power = [ 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10 ];
@@ -45,12 +46,12 @@ function player( name ) {
 		name: name,
 		cash: 19,
 		bonds: [
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
-			[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ]
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ],
+		[ '.', '.', '.', '.', '.', '.', '.', '.', '.' ]
 		],
 		pr: function( i, owner ) {
 			var mark = ((owner === this) ? '*' : ' ');
@@ -96,20 +97,20 @@ game.Dani = player( 'Dani' );
 game.players = [ game.Adam, game.Beth, game.Carl, game.Dani ];
 game.numplayers = 4;
 game.countries = [
-	[game.R, game.Dani],
-	[game.C, game.Carl],
-	[game.I, game.Beth],
-	[game.B, game.Adam],
-	[game.U, game.Dani],
-	[game.E, game.Carl]
+[game.R, game.Dani],
+[game.C, game.Carl],
+[game.I, game.Beth],
+[game.B, game.Adam],
+[game.U, game.Dani],
+[game.E, game.Carl]
 ];
 function owner( country ) {
 	return game.countries[ country.idx ][1]
 }
 function newown( country ) {
 	var i,
-		own = owner( country ),
-		owninv = owner( country ).investment( country.idx );
+	own = owner( country ),
+	owninv = owner( country ).investment( country.idx );
 	for (i = 0; i < game.numplayers; i++) {
 		if (game.players[i].investment( country.idx ) > owninv) {
 			own = game.players[i];
@@ -168,42 +169,51 @@ function prcountries() {
 
 function prnames() {
 	var i, out = '                  ';
-    for (i = 0; i < 4; i++ ) {
-        out += padstr( game.players[i].name );
+	for (i = 0; i < 4; i++ ) {
+		out += padstr( game.players[i].name );
 	}
-    return out + '\n'
+	return out + '\n'
 }
 
 function prcash() {
 	var i, out = '                  ';
-    for (i = 0; i < 4; i++ ) {
-        out += padstr( '$' + game.players[i].cash );
+	for (i = 0; i < 4; i++ ) {
+		out += padstr( '$' + game.players[i].cash );
 	}
-    return out + '\n'
+	return out + '\n'
 }
 
 function prturn() {
-	return game.round + ': ' + game.countries[game.turn][0].name + '/' + game.countries[game.turn][1].name + '\n'
+	return 'Round ' + game.round + ': '
+	+ game.countries[game.turn][0].name + '/' + game.countries[game.turn][1].name + ', '
+	+ game.phase + ' phase\n'
 }
 function prtable() {
 	clear();
 	show( prturn() + prnames() + prcash() + prcountries() );
 }
 
-function countrypayout() {
-	var amt = +document.getElementById( 'cpayamt' ).value;
-	game.countries[game.turn][0].payout( amt );
-	prtable()
-}
 function doinvestor() {
 	investor( game.countries[game.turn][0] );
-	game.turn = (game.turn === 5 ? 0 : (game.turn + 1));
+	game.phase = 'buy';
+	prtable()
+}
+function doimport() {
+	var amt = +document.getElementById( 'import' ).value;
+	game.countries[game.turn][0].payout( amt );
+	game.phase = 'buy';
 	prtable()
 }
 function dotaxation() {
-	game.turn = (game.turn === 5 ? 0 : (game.turn + 1));
+	game.phase = 'buy';
 	prtable()
 }
+function dofactory() {
+	game.countries[game.turn][0].payout( 5 );
+	game.phase = 'buy';
+	prtable()
+}
+
 function doturn() {
 	if (game.turn === 5) {
 		game.turn = 0;
@@ -211,17 +221,12 @@ function doturn() {
 	} else {
 		game.turn++;
 	}
-	prtable()
-}
-
-function playerpayout() {
-	var amt = +document.getElementById( 'ppayamt' ).value;
-	game.countries[game.turn][1].payout( amt );
+	game.phase = 'action';
 	prtable()
 }
 function dobuy() {
-	var bond = +document.getElementById( 'buybond' ).value;
+	var bond = +document.getElementById( 'buy' ).value;
 	cturn = game.countries[game.turn];
 	cturn[1].buy( cturn[0], bond );
-	prtable()
+	doturn()
 }
