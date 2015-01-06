@@ -64,7 +64,7 @@ function player( name ) {
 		},
 		upgrade: function( country, fr, to ) {
 			country.ret( fr );
-			this.payin( country.payout( costs[ fr ] ) );
+			this.payin( country.payout( game.costs[ fr ] ) );
 			this.bonds[ country.idx ][ 9 - fr ] = '.';
 			this.buy( country, to );
 		},
@@ -193,25 +193,25 @@ function prtable() {
 	show( prturn() + prnames() + prcash() + prcountries() );
 }
 
+function endact() {
+	game.phase = 'buy';
+	prtable
+}
 function doinvestor() {
 	investor( game.countries[game.turn][0] );
-	game.phase = 'buy';
-	prtable()
+	endact()
 }
 function doimport() {
 	var amt = +document.getElementById( 'import' ).value;
 	game.countries[game.turn][0].payout( amt );
-	game.phase = 'buy';
-	prtable()
+	endact()
 }
 function dotaxation() {
-	game.phase = 'buy';
-	prtable()
+	endact()
 }
 function dofactory() {
 	game.countries[game.turn][0].payout( 5 );
-	game.phase = 'buy';
-	prtable()
+	endact()
 }
 
 function doturn() {
@@ -228,5 +228,13 @@ function dobuy() {
 	var bond = +document.getElementById( 'buy' ).value;
 	cturn = game.countries[game.turn];
 	cturn[1].buy( cturn[0], bond );
+	doturn()
+}
+function doupgrade() {
+	var from = +document.getElementById( 'upfrom' ).value,
+	to = +document.getElementById( 'upto' ).value;
+
+	cturn = game.countries[game.turn];
+	cturn[1].upgrade( cturn[0], from, to );
 	doturn()
 }
