@@ -2,8 +2,7 @@ var game = {};
 function padnum( n )    {return ('  ' + n).slice( -2 )}
 function padstr( s )    {return ('                  ' + s).slice( -18 )}
 function show( s ) {document.getElementById( 'output' ).value = s}
-function clear() {}
-function init() {clear(); prtable()}
+function init() {prtable()}
 
 game.round = 1;
 game.turn = 0;
