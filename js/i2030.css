@@ -2,10 +2,7 @@ body {
 	font-family:monospace;
 	white-space:pre;
 }
-select {
-	font-family:monospace;
-	white-space:pre;
-}
+select {font-family:monospace;}
 textarea {resize:none}
 table {border:0}
 td {
