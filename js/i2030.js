@@ -9,6 +9,7 @@ function clear() {
 }
 function init() {clear(); prtable()}
 
+game.round = 1;
 game.costs = [ 0, 2, 4, 6, 9, 12, 16, 20, 25, 30 ];
 game.bonus = [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5 ];
 game.power = [ 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 10, 10 ];
@@ -186,7 +187,7 @@ function prcash() {
 }
 
 function prturn() {
-	return game.countries[game.turn][0].name + '/' + game.countries[game.turn][1].name + '\n'
+	return game.round + ': ' + game.countries[game.turn][0].name + '/' + game.countries[game.turn][1].name + '\n'
 }
 function prtable() {
 	clear();
@@ -208,7 +209,12 @@ function dotaxation() {
 	prtable()
 }
 function doturn() {
-	game.turn = (game.turn === 5 ? 0 : (game.turn + 1));
+	if (game.turn === 5) {
+		game.turn = 0;
+		game.round++
+	} else {
+		game.turn++;
+	}
 	prtable()
 }
 
