@@ -2,11 +2,7 @@ var game = {};
 function padnum( n )    {return ('  ' + n).slice( -2 )}
 function padstr( s )    {return ('                  ' + s).slice( -18 )}
 function show( s ) {document.getElementById( 'output' ).value = s}
-function clear() {
-	document.getElementById( 'cpayamt' ).value = '';
-	document.getElementById( 'ppayamt' ).value = '';
-	document.getElementById( 'buybond' ).value = '';
-}
+function clear() {}
 function init() {clear(); prtable()}
 
 game.round = 1;

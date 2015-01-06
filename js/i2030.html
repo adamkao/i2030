@@ -10,21 +10,97 @@
 <body onload='init()'>
 	<table>
 		<tr>
-			<td><textarea cols='99' rows='24' readonly='readonly' id='output'></textarea></td>
+			<td><textarea cols='99' rows='12' readonly='readonly' id='output'></textarea></td>
 			<td>
 				<table>
-					<tr><td><button onclick='countrypayout()'>pay out</button></td>	<td><input type='text' id='cpayamt'/></td></tr>
+					<tr>
+					</tr>
 					<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
-					<tr><td><button onclick='dotaxation()'>taxation</button></td>	<td><input type='text'/></td></tr>
-					<tr><td><button onclick='doturn()'>turn</button></td></tr>
-					<tr><td><hr></td></tr>
-					<tr><td><button onclick='playerpayout()'>pay out</button></td>	<td><input type='text' id='ppayamt'/></td></tr>
-					<tr><td><button onclick='dobuy()'>buy</button></td>				<td><input type='text' id='buybond'/></td></tr>
-					<tr><td><button onclick='doupgrade()'>upgrade</button></td>		<td><input type='text'/></td></tr>
-				</table>
-			</td>
-		</tr>
-	</table>
+					<td><button onclick='doimport()'>import</button></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3' selected>3</option>
+					</select>
+				</td>
+				<tr><td><button onclick='doproduce()'>produce</button></td></tr>
+				<tr><td><button onclick='domaneuver()'>maneuver</button></td></tr>
+				<tr><td><button onclick='dotaxation()'>taxation</button>
+					<td>at</td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4'>4</option>
+						<option value='5'>5</option>
+						<option value='6' selected>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+					</select></td>
+					<td>units</td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4' selected>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+					</select></td>
+					</tr>
+				<td><button onclick='dofactory()'>factory</button></td>
+				<tr><td><button onclick='doproduce()'>produce</button></td></tr>
+				<tr><td><button onclick='domaneuver()'>maneuver</button></td></tr>
+				<tr><td><hr></td></tr>
+				<tr>
+					<td><button onclick='dobuy()'>buy</button></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4' selected>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+					</select>
+				</tr>
+				<tr>
+					<td><button onclick='doupgrade()'>upgrade</button></td>
+					<td>from</td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3' selected>3</option>
+					</select></td>
+					<td>to</td>
+					<td><select>
+						<option value='1'>1</option>
+						<option value='2'>2</option>
+						<option value='3'>3</option>
+						<option value='4' selected>4</option>
+						<option value='5'>5</option>
+						<option value='6'>6</option>
+						<option value='7'>7</option>
+						<option value='8'>8</option>
+						<option value='9'>9</option>
+					</select></td>
+				</tr>
+				<tr><td><button onclick='dopass()'>pass</button></td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
 </body>
 
 </html>

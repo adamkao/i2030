@@ -1,5 +1,4 @@
 body {font-family:monospace; white-space:pre}
+textarea {resize:none}
 table {border:0}
-td {text-align:right}
-input.bids {width:9em}
-input.card {width:2em}
+td {text-align:right; width:90px}
