@@ -6,6 +6,7 @@ function clear() {}
 function init() {clear(); prtable()}
 
 game.round = 1;
+game.turn = 0;
 game.phase = 'action';
 game.costs = [ 0, 2, 4, 6, 9, 12, 16, 20, 25, 30 ];
 game.bonus = [ 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5, 5 ];
@@ -133,7 +134,6 @@ function tax( player, country, at, units ) {
 	player.payin( country.payout( bonus[ at ] ) );
 	country.powerup( power[ at ] );
 }
-game.turn = 0;
 
 game.Adam.buy( game.R, 2 );
 game.Beth.buy( game.R, 3 );
