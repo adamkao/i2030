@@ -1,4 +1,14 @@
-body {font-family:monospace; white-space:pre}
+body {
+	font-family:monospace;
+	white-space:pre;
+}
+select {
+	font-family:monospace;
+	white-space:pre;
+}
 textarea {resize:none}
 table {border:0}
-td {text-align:right; width:90px}
+td {
+	text-align:right;
+	width:90px;
+}
