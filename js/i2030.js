@@ -1,7 +1,7 @@
 var game = {};
 function padnum( n )    {return ('  ' + n).slice( -2 )}
 function padstr( s )    {return ('                  ' + s).slice( -18 )}
-function show( s ) {document.getElementById( 'output' ).value = s}
+function show( s ) {document.getElementById( 'output' ).innerHTML = s}
 function init() {prtable()}
 
 game.round = 1;
@@ -171,7 +171,7 @@ function prnames() {
 	for (i = 0; i < 4; i++ ) {
 		out += padstr( game.players[i].name );
 	}
-	return out + '\n'
+	return out + '<br>'
 }
 
 function prcash() {
@@ -179,16 +179,15 @@ function prcash() {
 	for (i = 0; i < 4; i++ ) {
 		out += padstr( '$' + game.players[i].cash );
 	}
-	return out + '\n'
+	return out + '<br>'
 }
 
 function prturn() {
 	return 'Round ' + game.round + ': '
 	+ game.countries[game.turn][0].name + '/' + game.countries[game.turn][1].name + ', '
-	+ game.phase + ' phase\n'
+	+ game.phase + ' phase<br>'
 }
 function prtable() {
-	clear();
 	show( prturn() + prnames() + prcash() + prcountries() );
 }
 

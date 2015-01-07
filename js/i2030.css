@@ -3,3 +3,4 @@ select {font-family:monospace;}
 textarea {resize:none}
 table {border:0}
 td {text-align:right}
+pre {text-align:left}
