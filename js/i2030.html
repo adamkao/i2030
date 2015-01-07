@@ -56,29 +56,32 @@
 					<td id='bondsE4'>.........  0 /0</td>
 				</tr>
 			</table></pre></td>
-			<td><table>
-				<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
-				<tr><td><button onclick='doimport()'>import</button></td>
-					<td><select id='import'><option value='3' selected>3</option></select></td>
-				</tr>
-				<tr><td><button onclick='dotaxation()'>taxation</button></td>
-					<td>at <select id='taxat'><option value='6' selected>6</option></select>
-						units <select id='taxunits'><option value='2' selected>2</option></select>
-					</td>
-				</tr>
-				<tr><td><button onclick='dofactory()'>factory</button></td></tr>
-				<tr><td><button onclick='endact()'>done</button></td></tr>
-				<tr><td>------------</td></tr>
-				<tr><td><button onclick='dobuy()'>buy</button></td>
-					<td><select id='buy'><option value='4' selected>4</option></select></td>
-				</tr>
-				<tr><td><button onclick='doupgrade()'>upgrade</button></td>
-					<td>from <select id='upfrom'><option value='3' selected>3</option></select>
-						to <select id='upto'><option value='4' selected>4</option></select>
-					</td>
-				</tr>
-				<tr><td><button onclick='doturn()'>pass</button></td></tr>
-			</table></td>
+			<td>
+				<table id='act'>
+					<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
+					<tr><td><button onclick='doimport()'>import</button></td>
+						<td><select id='import'><option value='3' selected>3</option></select></td>
+					</tr>
+					<tr><td><button onclick='dotaxation()'>taxation</button></td>
+						<td>at <select id='taxat'><option value='6' selected>6</option></select>
+							units <select id='taxunits'><option value='2' selected>2</option></select>
+						</td>
+					</tr>
+					<tr><td><button onclick='dofactory()'>factory</button></td></tr>
+					<tr><td><button onclick='endact()'>done</button></td></tr>
+				</table>
+				<table id='buy' hidden>
+					<tr><td><button onclick='dobuy()'>buy</button></td>
+						<td><select id='buy'><option value='4' selected>4</option></select></td>
+					</tr>
+					<tr><td><button onclick='doupgrade()'>upgrade</button></td>
+						<td>from <select id='upfrom'><option value='3' selected>3</option></select>
+							to <select id='upto'><option value='4' selected>4</option></select>
+						</td>
+					</tr>
+					<tr><td><button onclick='doturn()'>pass</button></td></tr>
+				</table>
+			</td>
 		</tr>
 	</table>
 </body>
