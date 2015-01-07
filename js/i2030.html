@@ -7,98 +7,79 @@
 </head>
 <body onload='init()'>
 	<table>
+		<tr><td id='header' style='text-align:left'>Round 1: R/Beth, action phase</td></tr>
 		<tr>
-			<td><pre id='output'>output here</pre></td>
-			<td>
-				<table>
-					<tr>
-					</tr>
-					<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
-					<td><button onclick='doimport()'>import</button></td>
-					<td><select id='import'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3' selected>3</option>
-					</select>
-				</td>
-				<tr><td><button onclick='dotaxation()'>taxation</button>
-					<td> at <select id='taxat'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4'>4</option>
-						<option value='5'>5</option>
-						<option value='6' selected>6</option>
-						<option value='7'>7</option>
-						<option value='8'>8</option>
-						<option value='9'>9</option>
-						<option value='10'>10</option>
-						<option value='11'>11</option>
-						<option value='12'>12</option>
-						<option value='13'>13</option>
-						<option value='14'>14</option>
-						<option value='15'>15</option>
-						<option value='16'>16</option>
-						<option value='17'>17</option>
-						<option value='18'>18</option>
-					</select><br> units <select id='taxunits'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4' selected>4</option>
-						<option value='5'>5</option>
-						<option value='6'>6</option>
-						<option value='7'>7</option>
-						<option value='8'>8</option>
-						<option value='9'>9</option>
-						<option value='10'>10</option>
-						<option value='11'>11</option>
-						<option value='12'>12</option>
-						<option value='13'>13</option>
-						<option value='14'>14</option>
-						<option value='15'>15</option>
-						<option value='16'>16</option>
-					</select></td>
-					</tr>
-				<td><button onclick='dofactory()'>factory</button></td>
-				<tr><td><button onclick='endact()'>done</button></td></tr>
- 				<tr><td><hr></td></tr>
-				<tr>
-					<td><button onclick='dobuy()'>buy</button></td>
-					<td><select id='buy'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4' selected>4</option>
-						<option value='5'>5</option>
-						<option value='6'>6</option>
-						<option value='7'>7</option>
-						<option value='8'>8</option>
-						<option value='9'>9</option>
-					</select>
+			<td><pre><table>
+				<colgroup><col id='c0'><col id='c1'><col id='c2' style='background-color:yellow'><col id='c3'><col id='c4'></colgroup>
+				<tr><td></td><td id='p1'>Adam</td><td id='p2'>Beth</td><td id='p3'>Charles</td><td id='p4'>Dani</td></tr>
+				<tr><td></td><td id='cash1'>$18</td><td id='cash2'>$18</td><td id='cash3'>$18</td><td id='cash4'>$18</td></tr>
+				<tr id='R' style='background-color:yellow'>
+					<td id='cR'>R 987654...  0 $12</td>
+					<td id='bondsR1'>.........  0 /0</td>
+					<td id='bondsR1'>.........  0 /0</td>
+					<td id='bondsR1'>.........  0 /0</td>
+					<td id='bondsR4'>.........  0 /0</td>
 				</tr>
-				<tr>
-					<td><button onclick='doupgrade()'>upgrade</button></td>
-					<td>from <select id='upfrom'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3' selected>3</option>
-					</select><br> to <select id='upto'>
-						<option value='1'>1</option>
-						<option value='2'>2</option>
-						<option value='3'>3</option>
-						<option value='4' selected>4</option>
-						<option value='5'>5</option>
-						<option value='6'>6</option>
-						<option value='7'>7</option>
-						<option value='8'>8</option>
-						<option value='9'>9</option>
-					</select></td>
+				<tr id='C'>
+					<td id='cC'>C 987654...  0 $12</td>
+					<td id='bondsC1'>.........  0 /0</td>
+					<td id='bondsC2'>.........  0 /0</td>
+					<td id='bondsC3'>.........  0 /0</td>
+					<td id='bondsC4'>.........  0 /0</td>
+				</tr>
+				<tr id='I'>
+					<td id='cI'>I 987654...  0 $12</td>
+					<td id='bondsI1'>.........  0 /0</td>
+					<td id='bondsI2'>.........  0 /0</td>
+					<td id='bondsI3'>.........  0 /0</td>
+					<td id='bondsI4'>.........  0 /0</td>
+				</tr>
+				<tr id='B'>
+					<td id='cB'>B 987654...  0 $12</td>
+					<td id='bondsB1'>.........  0 /0</td>
+					<td id='bondsB2'>.........  0 /0</td>
+					<td id='bondsB3'>.........  0 /0</td>
+					<td id='bondsB4'>.........  0 /0</td>
+				</tr>
+				<tr id='U'>
+					<td id='cU'>U 987654...  0 $12</td>
+					<td id='bondsU1'>.........  0 /0</td>
+					<td id='bondsU2'>.........  0 /0</td>
+					<td id='bondsU3'>.........  0 /0</td>
+					<td id='bondsU4'>.........  0 /0</td>
+				</tr>
+				<tr id='E'>
+					<td id='cE'>E 987654...  0 $12</td>
+					<td id='bondsE1'>.........  0 /0</td>
+					<td id='bondsE2'>.........  0 /0</td>
+					<td id='bondsE3'>.........  0 /0</td>
+					<td id='bondsE4'>.........  0 /0</td>
+				</tr>
+			</table></pre></td>
+			<td><table>
+				<tr><td><button onclick='doinvestor()'>investor</button></td></tr>
+				<tr><td><button onclick='doimport()'>import</button></td>
+					<td><select id='import'><option value='3' selected>3</option></select></td>
+				</tr>
+				<tr><td><button onclick='dotaxation()'>taxation</button></td>
+					<td>at <select id='taxat'><option value='6' selected>6</option></select>
+						units <select id='taxunits'><option value='2' selected>2</option></select>
+					</td>
+				</tr>
+				<tr><td><button onclick='dofactory()'>factory</button></td></tr>
+				<tr><td><button onclick='endact()'>done</button></td></tr>
+				<tr><td>------------</td></tr>
+				<tr><td><button onclick='dobuy()'>buy</button></td>
+					<td><select id='buy'><option value='4' selected>4</option></select></td>
+				</tr>
+				<tr><td><button onclick='doupgrade()'>upgrade</button></td>
+					<td>from <select id='upfrom'><option value='3' selected>3</option></select>
+						to <select id='upto'><option value='4' selected>4</option></select>
+					</td>
 				</tr>
 				<tr><td><button onclick='doturn()'>pass</button></td></tr>
-			</table>
-		</td>
-	</tr>
-</table>
+			</table></td>
+		</tr>
+	</table>
 </body>
 </html>
